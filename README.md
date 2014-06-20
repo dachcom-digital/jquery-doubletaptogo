@@ -1,6 +1,6 @@
 jquery-doubleTapToGo
 ============
-Brings drop-down navigation-usability for touch devices. Built as jQuery UI widget.
+Brings drop-down navigation tapping for touch devices. Built as jQuery UI widget.
 
 Dependencies
 ============
