@@ -1,0 +1,4 @@
+.idea
+.vagrant
+atlassian-ide-plugin.xml
+Vagrantfile
