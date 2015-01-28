@@ -1,5 +1,5 @@
 {
-    "name": "jquery-dcd-double-tap-to-go",
+    "name": "jquery-double-tap-to-go",
     "version": "2.0",
     "main": [
         "src/jquery.dcd.doubletaptogo.js"
