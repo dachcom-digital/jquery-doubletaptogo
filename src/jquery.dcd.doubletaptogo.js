@@ -11,73 +11,55 @@
  * jquery-doubleTapToGo widget
  * Copyright 2014 DACHCOM.DIGITAL AG
  * @author Marco Rieser
+ * @version 2.0.0
  * @see https://github.com/dachcom-digital/jquery-doubleTapToGo
  */
 (function ($) {
     'use strict';
     $.widget('dcd.doubleTapToGo', {
         options: {
-            levels: 1
+            automatic: true,
+            selectorClass: 'doubletap'
         },
+
+        _currentTap: $(),
 
         _create: function () {
             if ((window.ontouchstart === undefined) && !window.navigator.msMaxTouchPoints && !window.navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) {
                 return false;
             }
 
-            if ((this.options.levels !== -1)) {
-                this._levelLimiter();
-            }
-
-            this._curItem = false;
             this._on({
-                'click li': '_checkFirstClick'
+                'touchstart .doubletap': '_tap',
+                'MSPointerDown .doubletap': '_tap'
             });
 
-            this._on(document, {
-                'click touchstart MSPointerDown': '_openNavigation'
-            });
-            return true;
+            this._addSelectors();
         },
 
-        _levelLimiter: function () {
-            var i = 0,
-                selector = '';
-            for (i; i < this.options.levels; i++) {
-                selector += '> ul > li ';
-            }
-            selector += 'ul';
-            this.element.find(selector).addClass('no-doubletapping');
-        },
-
-        _checkFirstClick: function (event) {
-            var item = $(event.target).closest('li');
-            if (!(item.find('ul').length)) {
+        _addSelectors: function() {
+            if (this.options.automatic !== true) {
                 return;
             }
-            if ((item.parent('ul').hasClass('no-doubletapping'))) {
-                return;
-            }
-            if (item[0] !== this._curItem[0]) {
-                event.preventDefault();
-                this._curItem = item;
-            }
+
+            this.element.find('li:has(ul)').addClass(this.options.selectorClass);
         },
 
-        _openNavigation: function (event) {
-            var resetItem = true,
-                parents = $(event.target).parents(),
-                i = 0;
-
-            for (i; i < parents.length; i++) {
-                if (parents[i] === this._curItem[0]) {
-                    resetItem = false;
-                }
+        _tap: function (event) {
+            var $target = $(event.target).closest('li');
+            if (!$target.hasClass(this.options.selectorClass)) {
+                return true;
             }
 
-            if (resetItem) {
-                this._curItem = false;
+            if ($target.get(0) === this._currentTap.get(0)) {
+                event.stopPropagation();
+                return true;
             }
+
+            this._currentTap = $target;
+            event.stopPropagation();
+            event.preventDefault();
+
         }
     });
 }(jQuery));

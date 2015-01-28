@@ -29,7 +29,7 @@ Installation
 <script src="../lib/jquery.ui.widget.js" type="text/javascript"></script>
 
 <!-- 3. Include widget -->
-<script src="../src/jquery.dcd.doubleTapToGo.js" type="text/javascript"></script>
+<script src="../src/jquery.dcd.doubletaptogo.js" type="text/javascript"></script>
 
 <!-- 4. Bind widget to containers -->
 <script type="text/javascript">
@@ -42,4 +42,16 @@ Installation
 Options
 ============
 
-- **levels**: Number of navigation levels for doubleTapping `[Default: 1 | -1 for all levels]`
+- **automatic**: If set to true, tries to find out automatically which elements need doubletap and sets selector class on it. Set to false, if you have a more complex structure and set the selector class manually on the elements. `[Default: true]`
+- **selectorClass**: Defines the selector class on which doubletap binds. `[Default: 'doubletap']`
+
+Changelog
+============
+2.0.0 Refactoring
+-----------------
+* added automatic mode
+* added selector for binding
+* removed levels option
+
+1.0.0 Initial Release
+---------------------
