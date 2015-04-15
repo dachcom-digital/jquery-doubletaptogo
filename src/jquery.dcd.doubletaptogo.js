@@ -1,4 +1,4 @@
-/*global jQuery, window, document, console*/
+/*global jQuery, window, document*/
 /*jslint nomen:true, plusplus:true*/
 
 /*
@@ -59,7 +59,6 @@
         },
 
         _tap: function (event) {
-            console.log('test');
             var $target = $(event.target).closest('li');
             if (!$target.hasClass(this.options.selectorClass)) {
                 return true;

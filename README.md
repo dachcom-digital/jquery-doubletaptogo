@@ -42,7 +42,7 @@ Installation
 Options
 ============
 
-- **automatic**: If set to true, tries to find out automatically which elements need doubletap and sets selector class on it. Set to false, if you have a more complex structure and set the selector class manually on the elements. `[Default: true]`
+- **automatic**: If set to true, tries to find out automatically which elements need doubletap and sets selector class on it. Set to false, if you have a more complex structure and set the selector class manually on the elements or specify a complex selector chain. `[Default: true]`
 - **selectorClass**: Defines the selector class on which doubletap binds. `[Default: 'doubletap']`
 - **selectorChain**: Defines the selector chain on which doubletap binds. `[Default: 'li:has(ul)']`
 
