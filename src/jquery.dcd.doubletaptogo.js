@@ -29,7 +29,7 @@
             var useragent;
 
             if ((window.ontouchstart === undefined) && !window.navigator.msMaxTouchPoints && !window.navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) {
-                return false;
+                return;
             }
 
             useragent = window.navigator.userAgent.toLowerCase();
@@ -46,8 +46,6 @@
             }
 
             this._addSelectors();
-
-            return true;
         },
 
         _addSelectors: function () {
@@ -61,18 +59,17 @@
         _tap: function (event) {
             var $target = $(event.target).closest('li');
             if (!$target.hasClass(this.options.selectorClass)) {
-                return true;
+                return;
             }
 
             if ($target.get(0) === this._currentTap.get(0)) {
                 event.stopPropagation();
-                return true;
+                return;
             }
 
             this._currentTap = $target;
             event.stopPropagation();
             event.preventDefault();
-            return false;
         }
     });
 }(jQuery));
