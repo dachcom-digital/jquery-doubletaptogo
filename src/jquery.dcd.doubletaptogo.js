@@ -11,11 +11,32 @@
  * jquery-doubleTapToGo widget
  * Copyright 2014 DACHCOM.DIGITAL AG
  * @author Marco Rieser
- * @version 2.0.1
+ * @author Volker Andres
+ * @version 2.0.2
  * @see https://github.com/dachcom-digital/jquery-doubleTapToGo
  */
 (function ($) {
     'use strict';
+
+    var options = {},
+        currentTap = $(),
+        preventClick = false,
+        tapEvent = function (event) {
+            var $target = $(event.target).closest('li');
+            if (!$target.hasClass(options.selectorClass)) {
+                preventClick = false;
+                return;
+            }
+
+            if ($target.get(0) === currentTap.get(0)) {
+                preventClick = false;
+                return;
+            }
+
+            preventClick = true;
+            currentTap = $target;
+        };
+
     $.widget('dcd.doubleTapToGo', {
         options: {
             automatic: true,
@@ -23,27 +44,26 @@
             selectorChain: 'li:has(ul)'
         },
 
-        _currentTap: $(),
-
         _create: function () {
-            var useragent;
+            var self = this;
 
-            if ((window.ontouchstart === undefined) && !window.navigator.msMaxTouchPoints && !window.navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) {
+            if (window.ontouchstart === undefined && !window.navigator.msMaxTouchPoints && !window.navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) {
                 return;
             }
 
-            useragent = window.navigator.userAgent.toLowerCase();
+            options = this.options;
 
-            if (useragent.indexOf('android') > -1) {
-                this._on('.' + this.options.selectorClass, {
-                    'click': '_tap',
-                    'MSPointerDown': '_tap'
-                });
-            } else {
-                this._on('.' + this.options.selectorClass, {
-                    'touchstart': '_tap'
-                });
+            if (window.navigator.msPointerEnabled) {
+                this.element.get(0).addEventListener('MSPointerDown', tapEvent, false);
+            } else if (window.navigator.pointerEnabled) {
+                this.element.get(0).addEventListener('pointerdown', tapEvent, false);
             }
+
+            this.element.on('click', '.' + this.options.selectorClass, function (event) {
+                return self._click(event);
+            }).on('touchstart', '.' + this.options.selectorClass, function (event) {
+                return self._tap(event);
+            });
 
             this._addSelectors();
         },
@@ -56,20 +76,26 @@
             this.element.find(this.options.selectorChain).addClass(this.options.selectorClass);
         },
 
-        _tap: function (event) {
-            var $target = $(event.target).closest('li');
-            if (!$target.hasClass(this.options.selectorClass)) {
-                return;
+        _click: function (event) {
+            if (preventClick) {
+                event.preventDefault();
+            } else {
+                currentTap = $();
+            }
+        },
+
+        _tap: tapEvent,
+
+        _destroy: function () {
+            this.element.off();
+
+            if (window.navigator.msPointerEnabled) {
+                this.element.get(0).removeEventListener('MSPointerDown', tapEvent);
             }
 
-            if ($target.get(0) === this._currentTap.get(0)) {
-                event.stopPropagation();
-                return;
+            if (window.navigator.pointerEnabled) {
+                this.element.get(0).removeEventListener('pointerdown', tapEvent);
             }
-
-            this._currentTap = $target;
-            event.stopPropagation();
-            event.preventDefault();
         }
     });
 }(jQuery));
