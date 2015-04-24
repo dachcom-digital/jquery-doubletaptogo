@@ -35,6 +35,7 @@
 
             preventClick = true;
             currentTap = $target;
+            event.stopPropagation();
         };
 
     $.widget('dcd.doubleTapToGo', {
@@ -66,6 +67,11 @@
             });
 
             this._addSelectors();
+        },
+
+        _init: function () {
+            currentTap = $();
+            preventClick = false;
         },
 
         _addSelectors: function () {
