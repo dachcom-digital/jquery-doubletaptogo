@@ -2,12 +2,11 @@ jquery-doubleTapToGo
 ============
 
 [![Join the chat at https://gitter.im/dachcom-digital/jquery-doubleTapToGo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dachcom-digital/jquery-doubleTapToGo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-Brings drop-down navigation tapping for touch devices. Built as jQuery UI widget.
+Brings drop-down navigation tapping for touch devices. Built as jQuery Plugin.
 
 Dependencies
 ============
 - jQuery: http://jquery.com/
-- jQuery UI Widget: http://jqueryui.com/
 
 Installation
 ============
@@ -27,12 +26,12 @@ Installation
 </nav>
 
 <!-- 2. Include jQuery -->
-<script src="../lib/jquery.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-<!-- 3. Include widget -->
-<script src="../src/jquery.dcd.doubletaptogo.js" type="text/javascript"></script>
+<!-- 3. Include plugin -->
+<script src="dist/jquery.dcd.doubletaptogo.js" type="text/javascript"></script>
 
-<!-- 4. Bind widget to containers -->
+<!-- 4. Bind plugin to containers -->
 <script type="text/javascript">
     $(function () {
         $('.navigation').doubleTapToGo();
