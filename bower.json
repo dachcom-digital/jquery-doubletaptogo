@@ -1,5 +1,5 @@
 {
-    "name": "jquery-double-tap-to-go",
+    "name": "jquery-doubletaptogo",
     "version": "3.0.0",
     "main": [
         "dist/jquery.dcd.doubletaptogo.min.js"

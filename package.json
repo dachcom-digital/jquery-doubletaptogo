@@ -1,19 +1,19 @@
 {
-  "name": "jquery-double-tap-to-go",
-  "version": "3.0.1",
-  "main": "dist/jquery.dcd.doubletaptogo.min.js",
-  "repository": "git@github.com:dachcom-digital/jquery-doubleTapToGo.git",
-  "author": "Marco Rieser <mrieser@dachcom.ch>",
-  "scripts": {
-    "postinstall": "gulp prepare"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.18.5",
-    "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.0.0",
-    "jquery": "^3.1.1"
-  }
+    "name": "jquery-doubletaptogo",
+    "version": "3.0.0",
+    "main": "dist/jquery.dcd.doubletaptogo.min.js",
+    "repository": "git@github.com:dachcom-digital/jquery-doubleTapToGo.git",
+    "author": "Marco Rieser <mrieser@dachcom.ch>",
+    "scripts": {
+        "postinstall": "gulp prepare"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.18.5",
+        "gulp": "^3.8.10",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-uglify": "^2.0.0",
+        "jquery": "^3.1.1"
+    }
 }
