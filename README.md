@@ -26,9 +26,8 @@ Installation
     </ul>
 </nav>
 
-<!-- 2. Include libraries -->
+<!-- 2. Include jQuery -->
 <script src="../lib/jquery.js" type="text/javascript"></script>
-<script src="../lib/jquery.ui.widget.js" type="text/javascript"></script>
 
 <!-- 3. Include widget -->
 <script src="../src/jquery.dcd.doubletaptogo.js" type="text/javascript"></script>
@@ -50,6 +49,11 @@ Options
 
 Changelog
 ============
+3.0.0 Refactor to jQuery Plugin
+-----------------
+* removed dependency for jQuery Widget Factory
+* Bugfixes
+
 2.0.1 Bugfixes
 -----------------
 * added selector chain

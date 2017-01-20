@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery DoubleTapToGo Demo</title>
+    <link rel="stylesheet" href="scss/main.css"/>
+</head>
+<body>
+
+<div class="nav-wrap clearfix">
+    <nav class="navigation-automatic">
+        <ul class="clearfix">
+            <li><a href="#a1">First level</a></li>
+            <li class="hassub"><a href="#a2">First level</a>
+                <ul>
+                    <li><a href="#a21">Second level</a></li>
+                    <li><a href="#a22">Second level</a></li>
+                </ul>
+            </li>
+            <li class="hassub"><a href="#a3">First level</a>
+                <ul>
+                    <li><a href="#a31">Second level</a></li>
+                    <li class="hassub"><a href="#a32">Second level</a>
+                        <ul>
+                            <li><a href="#a321">Third level</a></li>
+                            <li><a href="#a322">Third level</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="title">
+        Automatic
+    </div>
+</div>
+
+<div class="nav-wrap clearfix">
+    <nav class="navigation-manual">
+        <ul class="clearfix">
+            <li><a href="#m1">First level</a></li>
+            <li class="hassub doubletap"><a href="#m2">First level</a>
+                <ul>
+                    <li><a href="#m21">Second level</a></li>
+                    <li><a href="#m22">Second level</a></li>
+                </ul>
+            </li>
+            <li class="hassub doubletap"><a href="#m3">First level</a>
+                <ul>
+                    <li><a href="#m31">Second level</a></li>
+                    <li class="hassub doubletap"><a href="#m32">Second level</a>
+                        <ul>
+                            <li><a href="#m321">Third level</a></li>
+                            <li><a href="#m322">Third level</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="title">
+        Manual
+    </div>
+</div>
+
+<!-- 2. Include libraries -->
+<script src="lib/jquery.min.js" type="text/javascript"></script>
+
+<!-- 3. Include plugin -->
+<script src="js/jquery.dcd.doubletaptogo.js" type="text/javascript"></script>
+
+<!-- 4. Bind plugin to containers -->
+<script type="text/javascript">
+    $(function () {
+        $('.navigation-automatic').doubleTapToGo();
+    });
+
+    $(function () {
+        $('.navigation-manual').doubleTapToGo({
+            automatic: false
+        });
+    });
+</script>
+</body>
+</html>

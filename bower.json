@@ -1,11 +1,10 @@
 {
     "name": "jquery-double-tap-to-go",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "main": [
-        "src/jquery.dcd.doubletaptogo.js"
+        "dist/jquery.dcd.doubletaptogo.min.js"
     ],
     "dependencies": {
-        "jquery": ">=1.6",
-        "jquery-ui": ">=1.10"
+        "jquery": ">=3.1.1"
     }
 }

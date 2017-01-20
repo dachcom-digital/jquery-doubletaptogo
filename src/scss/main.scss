@@ -1,0 +1,180 @@
+// Resets
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:active,
+    &:hover {
+        outline-width: 0;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Styles
+$blue: #2c3e50;
+$white: #fff;
+.nav-wrap {
+    background: $blue;
+    margin-bottom: 150px;
+}
+
+.title {
+    float: right;
+    line-height: 59px;
+    color: $white;
+    margin-right: 10px;
+}
+
+nav {
+    float: left;
+
+    > ul {
+        max-width: 1164px;
+        padding: 0 10px;
+        > li {
+            float: left;
+            position: relative;
+
+            > a,
+            > a:link,
+            > a:visited {
+                display: block;
+                line-height: 1.2;
+                padding: 20px;
+                color: $white;
+            }
+
+            &:hover > a,
+            > a:hover,
+            > a:active,
+            > a:focus {
+                background: transparentize($white, 0.9);
+            }
+
+            &.hassub {
+                > a {
+                    padding-right: 35px;
+                }
+                &:after {
+                    content: '';
+                    color: $white;
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    transform: translate(0, -50%);
+                    width: 0;
+                    height: 0;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 6px solid $white;
+                }
+            }
+
+            &:hover {
+                > ul {
+                    display: block;
+                }
+            }
+            > ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #fff;
+                display: none;
+                border: solid $blue;
+                border-width: 0 1px 1px 1px;
+                width: 150px;
+                padding: 10px 0;
+
+                a,
+                a:link,
+                a:visited {
+                    display: block;
+                    line-height: 21px;
+                    padding: 10px 20px;
+                    color: $blue;
+                }
+
+                > li:hover > a,
+                a:hover,
+                a:active,
+                a:focus {
+                    background: transparentize($blue, 0.9);
+                }
+
+                li.hassub {
+                    position: relative;
+                    &:after {
+                        content: '';
+                        color: $white;
+                        position: absolute;
+                        top: 50%;
+                        right: 7px;
+                        transform: translate(0, -50%);
+                        width: 0;
+                        height: 0;
+                        border-bottom: 5px solid transparent;
+                        border-left: 5px solid $blue;
+                        border-top: 5px solid transparent;
+                    }
+                    ul {
+                        position: absolute;
+                        left: 100%;
+                        top: -11px;
+                        background: #fff;
+                        display: none;
+                        border: 1px solid $blue;
+                        width: 150px;
+                        padding: 10px 0;
+                    }
+                    &:hover ul {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

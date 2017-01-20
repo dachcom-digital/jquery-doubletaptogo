@@ -1,4 +1,4 @@
 .idea
-.vagrant
-atlassian-ide-plugin.xml
-Vagrantfile
+node_modules
+src/lib
+src/scss/*.css
