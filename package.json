@@ -1,5 +1,5 @@
 {
-    "name": "jquery-doubleTapToGo",
+    "name": "jquery-double-tap-to-go",
     "version": "3.0.0",
     "main": "dist/jquery.dcd.doubletaptogo.min.js",
     "repository": "git@github.com:dachcom-digital/jquery-doubleTapToGo.git",
