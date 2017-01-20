@@ -2,7 +2,7 @@
     "name": "jquery-doubletaptogo",
     "version": "3.0.0",
     "main": "dist/jquery.dcd.doubletaptogo.min.js",
-    "repository": "git@github.com:dachcom-digital/jquery-doubleTapToGo.git",
+    "repository": "git@github.com:dachcom-digital/jquery-doubletaptogo.git",
     "author": "Marco Rieser <mrieser@dachcom.ch>",
     "scripts": {
         "postinstall": "gulp prepare"
