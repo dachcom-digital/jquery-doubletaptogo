@@ -10,7 +10,7 @@
  * @author Volker Andres
  * @author Stefan Hagspiel
  * @version 3.0.0
- * @see https://github.com/dachcom-digital/jquery-doubleTapToGo
+ * @see https://github.com/dachcom-digital/jquery-doubletaptogo
  */
 (function ($, window, document, undefined) {
     'use strict';
@@ -33,18 +33,6 @@
         preventClick: false,
         currentTap: $(),
         init: function () {
-            var self = this;
-
-            if (window.ontouchstart === undefined && !window.navigator.msMaxTouchPoints && !window.navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) {
-                return;
-            }
-
-            if (window.navigator.msPointerEnabled) {
-                $(this.element).get(0).addEventListener('MSPointerDown', self._tap.bind(self), false);
-            } else if (window.navigator.pointerEnabled) {
-                $(this.element).get(0).addEventListener('pointerdown', self._tap.bind(self), false);
-            }
-
             $(this.element)
                 .on('click', '.' + this.settings.selectorClass, this._click.bind(this))
                 .on('touchstart', '.' + this.settings.selectorClass, this._tap.bind(this))

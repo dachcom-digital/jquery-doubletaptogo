@@ -78,6 +78,7 @@ nav {
             float: left;
             position: relative;
 
+            > span,
             > a,
             > a:link,
             > a:visited {
@@ -88,13 +89,16 @@ nav {
             }
 
             &:hover > a,
+            &:hover > span,
             > a:hover,
+            > span:hover,
             > a:active,
             > a:focus {
                 background: transparentize($white, 0.9);
             }
 
             &.hassub {
+                > span,
                 > a {
                     padding-right: 35px;
                 }
@@ -129,6 +133,7 @@ nav {
                 width: 150px;
                 padding: 10px 0;
 
+                span,
                 a,
                 a:link,
                 a:visited {
@@ -139,6 +144,8 @@ nav {
                 }
 
                 > li:hover > a,
+                > li:hover > span,
+                span:hover,
                 a:hover,
                 a:active,
                 a:focus {
