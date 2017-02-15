@@ -9,7 +9,7 @@
  * @author Marco Rieser
  * @author Volker Andres
  * @author Stefan Hagspiel
- * @version 3.0.0
+ * @version 3.0.1
  * @see https://github.com/dachcom-digital/jquery-doubletaptogo
  */
 (function ($, window, document, undefined) {
@@ -34,8 +34,8 @@
         currentTap: $(),
         init: function () {
             $(this.element)
-                .on('click', '.' + this.settings.selectorClass, this._click.bind(this))
                 .on('touchstart', '.' + this.settings.selectorClass, this._tap.bind(this))
+                .on('click', '.' + this.settings.selectorClass, this._click.bind(this))
                 .on('remove', this._destroy.bind(this));
 
             this._addSelectors();
@@ -75,12 +75,6 @@
 
         _destroy: function () {
             $(this.element).off();
-            if (window.navigator.msPointerEnabled) {
-                $(this.element).get(0).removeEventListener('MSPointerDown', this._tap);
-            }
-            if (window.navigator.pointerEnabled) {
-                $(this.element).get(0).removeEventListener('pointerdown', this._tap);
-            }
         },
 
         reset: function () {
