@@ -1,9 +1,12 @@
 jquery-doubletaptogo
 ============
 
-[![Join the chat at https://gitter.im/dachcom-digital/jquery-doubleTapToGo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dachcom-digital/jquery-doubleTapToGo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Brings drop-down navigation tapping for touch devices. Built as jQuery Plugin.
+
+
+[![Join the chat at https://gitter.im/dachcom-digital/jquery-doubletaptogo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dachcom-digital/jquery-doubletaptogo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm](https://img.shields.io/npm/v/jquery-doubletaptogo.svg)](https://www.npmjs.com/package/jquery-doubletaptogo)
+[![npm](https://img.shields.io/bower/v/jquery-doubletaptogo.svg)](https://www.npmjs.com/package/jquery-doubletaptogo)
 
 Dependencies
 ============
