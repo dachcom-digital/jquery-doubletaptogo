@@ -1,6 +1,6 @@
 {
     "name": "jquery-doubletaptogo",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "main": [
         "dist/jquery.dcd.doubletaptogo.min.js"
     ],

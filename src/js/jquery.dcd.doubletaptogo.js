@@ -9,7 +9,7 @@
  * @author Marco Rieser
  * @author Volker Andres
  * @author Stefan Hagspiel
- * @version 3.0.1
+ * @version 3.0.2
  * @see https://github.com/dachcom-digital/jquery-doubletaptogo
  */
 (function ($, window, document, undefined) {
